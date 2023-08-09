@@ -6,10 +6,10 @@ class file
 public:
 	file(){};
 	~file(){};
-	bool save(){};
-	bool load(){};
-	string dir(){};
-	int size(string name){};
+	//bool save(){};
+	//bool load(){};
+	//string dir(){};
+	int size() { return f_size; };
 
 	
 

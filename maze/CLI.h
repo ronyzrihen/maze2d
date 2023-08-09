@@ -16,9 +16,9 @@ public:
 
 	
 private:
-	ostream out;
+	/*ostream out;
 	istream in;
-	
+	*/
 
 };
 

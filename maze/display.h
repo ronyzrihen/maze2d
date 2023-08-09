@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class display
+class display :public command
 {
 public:
 	display(model* mod, view* vi) :d_model(mod), d_view(vi) {};
-	void doCommand(string name);
+	void doCommand(string name) { d_view->display(d_model->get_maze(name)); };
 	~display(){};
 
 private:
@@ -21,6 +21,6 @@ private:
 };
 
 
-void display::doCommand(string name) {
-	d_view->display(d_model->get_maze(name));
-}
+//void display::doCommand(string name) {
+//	d_view->display(d_model->get_maze(name));
+//}

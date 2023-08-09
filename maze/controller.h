@@ -10,8 +10,8 @@ using namespace std;
 class controller
 {
 public:
-	controller();
-	~controller();
+	controller(){};
+	~controller(){};
 
 private:
 

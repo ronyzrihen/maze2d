@@ -10,16 +10,18 @@
 using namespace std;
 
 int main() {
-    
-     myview newvi;
-     mymodel newmod;
-    map <string, command*>com;
-    com.emplace( "display", new display(&newmod, &newvi));
-    com.emplace( "mazesize",new mazesize(&newmod ,&newvi) );
+    myview newvi;
+    mymodel newmod;
+    cout << "HEREEEEE\n";
+    newmod.addalgo("simpGen", new simpleGenerator());
+    map<string, command*> com;
+    com["display"] = new display(&newmod, &newvi);
+    com["mazesize"] =new mazesize(&newmod ,&newvi);
 	 simpleGenerator sg;
      mycontroller newcon(&newvi,&newmod,com);
 	d2Maze maze= sg.generate_maze(10);
-    newcon.doCommand("display",);
+    newmod.generate_maze("simpGen", 10, "test");
+    newcon.doCommand("display","test");
 
 
 	return 0;

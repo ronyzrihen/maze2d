@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "dGenerator2SimpleMaze.h"
 #include "d2Maze.h"
+#include "Maze2dGenerator.h"
 
 using namespace std;
-class simpleGenerator 
+class simpleGenerator :public Generator
 {
 public:
     simpleGenerator() {};

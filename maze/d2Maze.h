@@ -20,7 +20,8 @@ struct Cell {
 class d2Maze
 {
 public:
-	d2Maze(int size);
+	d2Maze(int size) : m_dim(size) ,m_size(size), maze(size, vector<Cell>(size)) {};
+	d2Maze() {};
 	~d2Maze(){};
 	int move_up(int i, int j){};
 	int move_down(int i, int j){};
@@ -38,9 +39,9 @@ private:
 
 	vector<vector<Cell>> maze;
 	int m_dim;
-	pos player;
-	pos end;
-	pos start;
+	//pos player;
+	//pos end;
+	//pos start;
 	int m_size;
 
 
@@ -49,6 +50,3 @@ private:
 
 
 
-d2Maze::d2Maze(int maze_size) : m_dim(maze_size),
-maze(maze_size, vector<Cell>(maze_size))
-{};

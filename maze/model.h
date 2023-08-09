@@ -13,8 +13,8 @@ using namespace std;
 class model: public subject
 {
 public:
-	model();
-	~model();
+	model(){};
+	~model() {};
 	virtual int get_size(string name) = 0;
 	virtual d2Maze get_maze(string name) =0;
 
