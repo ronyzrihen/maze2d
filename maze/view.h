@@ -11,7 +11,7 @@ public:
 	view(){};
 	virtual void  maze_size(string name, int size) = 0;
 	virtual void  display(d2Maze maze) = 0;
-	virtual ~view()=0{};
+	virtual ~view()=0;
 
 private:
 
