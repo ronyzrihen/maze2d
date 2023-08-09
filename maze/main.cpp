@@ -12,8 +12,10 @@ using namespace std;
 int main() {
     myview newvi;
     mymodel newmod;
-    cout << "HEREEEEE\n";
-    newmod.addalgo("simpGen", new simpleGenerator());
+    Generator* gen = new simpleGenerator();
+    gen->measureAlgorithmTime();
+    cout << "\n-----------------------------------------------\n";
+    newmod.addalgo("simpGen", gen);
     map<string, command*> com;
     com["display"] = new display(&newmod, &newvi);
     com["mazesize"] =new mazesize(&newmod ,&newvi);

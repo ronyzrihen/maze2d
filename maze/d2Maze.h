@@ -29,7 +29,7 @@ public:
 	int move_right(int i, int j){};
 	file save_to_file(file f);
 	int get_size() { return m_size; };
-	vector<vector<Cell>>& get_maze() { return maze; };
+	vector<vector<Cell> >& get_maze() { return maze; };
 	int get_dim() { return m_dim; };
 	
 
@@ -37,7 +37,7 @@ public:
 
 private:
 
-	vector<vector<Cell>> maze;
+	vector<vector<Cell> > maze;
 	int m_dim;
 	//pos player;
 	//pos end;
