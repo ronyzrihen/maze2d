@@ -17,15 +17,17 @@ public:
 	void display(d2Maze maze);
 	void display_solution(string){};
 	int file_size(file file_name){};
-	void notify(command* com){};
+	void notify(string com, string arg){};
 	void maze_size(string name, int size) { cout << name << "size is : " << size << endl; };
 	void dir(string name,string nadir) { cout << name << "dir is : " << nadir << endl; };
-	void attach(observer* ob) {};
-	void detach(observer* ob) {};
+	void attach(observer* ob) {observers.push_back(ob);};
+	void detach(observer* ob) ;
 
 private:
 	//CLI ui;
 
 };
+
+
 
 

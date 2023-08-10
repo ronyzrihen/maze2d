@@ -1,4 +1,3 @@
-#include "d2Maze.h"
 #include "dGenerator2SimpleMaze.h"
 #include "Maze2dGenerator.h"
 #include "view.h"
@@ -6,6 +5,7 @@
 #include "mycontroller.h"
 #include "mazeSize.h"
 #include "display.h"
+#include "generate_success.h"
 
 using namespace std;
 
@@ -18,12 +18,15 @@ int main() {
     newmod.addalgo("simpGen", gen);
     map<string, command*> com;
     com["display"] = new display(&newmod, &newvi);
-    com["mazesize"] =new mazesize(&newmod ,&newvi);
-	 simpleGenerator sg;
-     mycontroller newcon(&newvi,&newmod,com);
-	d2Maze maze= sg.generate_maze(10);
-    newmod.generate_maze("simpGen", 10, "test");
-    newcon.doCommand("display","test");
+    com["mazesize"] = new mazesize(&newmod ,&newvi);
+    com["generate_success"] = new generate_success(&newvi);
+    com["generate_maze"] = new generate_maze(&newmod);
+
+    mycontroller newcon(&newvi,&newmod,com);
+    newvi.attach(&newcon);
+    newmod.attach(&newcon);
+    newcon.doCommand("generate_maze","test1");
+    newcon.doCommand("display","test1");
 
 
 	return 0;

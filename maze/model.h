@@ -17,8 +17,6 @@ public:
 	~model() {};
 	virtual int get_size(string name) = 0;
 	virtual d2Maze get_maze(string name) =0;
-
-
-private:
+    virtual d2Maze generate_maze(string algoname, int dim, string mazename) = 0;
 
 };

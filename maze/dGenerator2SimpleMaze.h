@@ -22,8 +22,7 @@ private:
 d2Maze simpleGenerator::generate_maze(int maze_size) {
 
     d2Maze newmaze(maze_size);
-    generate(0, 0, newmaze);
-
+    generate(newmaze.getStartPosition().get_row(), newmaze.getStartPosition().get_col(), newmaze);
     return newmaze;
 
 }

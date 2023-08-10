@@ -5,16 +5,22 @@
 #include "controller.h"
 #include <map>
 #include <string>
+#include "exception"
 using namespace std;
 
+class not_found : public exception{
+    const char * what() const noexcept override{
+        return "\nCouldn't find command in map\n";
+    }
+};
 
-class mycontroller : public controller
+class mycontroller : public controller , public exception
 {
 public:
 	mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map) {};
 	~mycontroller(){};
 	void doCommand(string com,string arg );
-	void update(command* action,  string detail);
+	void update(string com, string arg){ doCommand(com,arg);};
 	
 
 private:
@@ -34,15 +40,9 @@ void mycontroller::doCommand(string com,string arg) {
 	 commands[com]->doCommand(arg);
 	}
 	else {
-		cout << "erorr\n";
+		throw not_found();
 	}
 
 
 }
 
-
-
-void mycontroller::update(command* action ,string detail) {
-
-	action->doCommand(detail);
-}

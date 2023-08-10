@@ -11,7 +11,7 @@ class observer
 public:
 	observer(){};
 	~observer(){};
-	virtual void update(command* com)=0;
+	virtual void update(string com, string arg)=0;
 private:
 
 };

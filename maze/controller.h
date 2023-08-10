@@ -7,7 +7,7 @@
 using namespace std;
 
 
-class controller
+class controller :public observer
 {
 public:
 	controller(){};

@@ -20,7 +20,7 @@ public:
 	//d2Maze solve();
 	bool save(string, d2Maze maze);
 	d2Maze load(string, string);
-	void notify(command* com);
+	void notify(string com, string arg);
 	void addalgo(string name, Generator* algo);
 	string what() { return "not found\n"; };
 	int get_size(string name) { return files[name].size(); };
@@ -35,7 +35,7 @@ private:
 	 map <string,file > files;
 	 map<string, d2Maze> mazes;
 	 map<string, Generator* > algorithms;
-	 vector<observer*>observers;
+
 
 
 };
@@ -81,17 +81,22 @@ d2Maze mymodel:: generate_maze(string algoname, int dim,string mazename) {
 	if (it != algorithms.end()) {
 		d2Maze newMaze = algorithms[algoname]->generate_maze(dim);
 		add_maze(mazename, newMaze);
+        try {
+            notify("generate_success", mazename);
+        }catch(exception* e){
+            e->what();
+        }
 		return newMaze;
 	}
 		throw mymodel().what();
 
 }
 
-void mymodel::notify(command* com) {
+void mymodel::notify(string command, string arg) {
 
 	for (size_t i = 0; i < observers.size(); i++)
 	{
-		observers[i]->update(com);
+		observers[i]->update(command, arg);
 	}
 }
 
