@@ -11,7 +11,7 @@ void myview::display(d2Maze maze) {
     int endY = maze.getGoalPsition().get_col();
     for (int i = 0; i < maze.get_dim(); ++i) {
         for (int j = 0; j < maze.get_dim(); ++j) {
-            cout << (maze.get_maze()[i][j].topWall ? "===" : "| |");
+            cout << (maze.get_maze()[i][j].topWall ? "---" : "- -");
         }
         cout << "|" << endl;
 
@@ -22,16 +22,16 @@ void myview::display(d2Maze maze) {
         }
         cout << endl;
 
-        for (int j = 0; j < maze.get_dim(); ++j) {
-            cout << (maze.get_maze()[i][j].leftWall ? "|" : " ");
-            cout << " ";
-            cout << (maze.get_maze()[i][j].rightWall ? "|" : " ");
-        }
-        cout << (maze.get_maze()[i][maze.get_dim() - 1].rightWall ? "|" : " ") << endl;
+//        for (int j = 0; j < maze.get_dim(); ++j) {
+//            cout << (maze.get_maze()[i][j].leftWall ? "|" : " ");
+//            cout << " ";
+//            cout << (maze.get_maze()[i][j].rightWall ? "|" : " ");
+//        }
+//        cout << (maze.get_maze()[i][maze.get_dim() - 1].rightWall ? "|" : " ") << endl;
     }
 
     for (int j = 0; j < maze.get_dim(); ++j) {
-        cout << "===";
+        cout << "---";
     }
     cout << "|" << endl;
 }

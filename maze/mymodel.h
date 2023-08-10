@@ -24,7 +24,7 @@ public:
 	void addalgo(string name, Generator* algo);
 	string what() { return "not found\n"; };
 	int get_size(string name) { return files[name].size(); };
-	d2Maze get_maze(string name) { return mazes[name]; };
+	d2Maze& get_maze(string name) { return mazes[name]; };
 	void attach(observer* ob);
 	void detach(observer* ob);
 	void add_maze(string name, d2Maze maze);
@@ -127,7 +127,7 @@ void mymodel::add_maze(string name, d2Maze maze) {
 	}
 	map<string, d2Maze> ::iterator it = mazes.find(name);
 	
-	if (it != mazes.end()) {
+	if (it == mazes.end() ) {
 		mazes[name] = maze;
 		return;
 	}

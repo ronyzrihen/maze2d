@@ -2,6 +2,7 @@
 #include "pos.h"
 #include "file.h"
 #include <vector>
+#include <iostream>
 
 
 
@@ -23,14 +24,14 @@ public:
 	d2Maze(int size);
     d2Maze(){};
 	~d2Maze(){};
-	int move_up();
-	int move_down();
-	int move_left();
-	int move_right();
+    void move_up();
+    void move_down();
+    void move_left();
+    void move_right();
     pos getStartPosition(){return start;};
     pos getGoalPsition(){return end;};
     pos getPlayerPsition(){return player;};
-    string* getPossibleMoves(){};
+    string* getPossibleMoves();
 	file save_to_file(file f){};
 	int get_size() { return m_size; };
 	vector<vector<Cell> >& get_maze() { return maze; };
