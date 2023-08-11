@@ -1,5 +1,5 @@
 #include "dGenerator2SimpleMaze.h"
-#include "Maze2dGenerator.h"
+//#include "Maze2dGenerator.h"
 #include "view.h"
 #include "mymodel.h"
 #include "mycontroller.h"

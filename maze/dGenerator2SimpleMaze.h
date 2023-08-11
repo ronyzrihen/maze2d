@@ -13,9 +13,6 @@ public:
 	 d2Maze generate_maze(int maze_size) ;
      void generate(int row, int col, d2Maze& maze);
 
-
-private:
-
 };
 
 

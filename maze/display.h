@@ -11,7 +11,9 @@ class display :public command
 {
 public:
 	display(model* mod, view* vi) :d_model(mod), d_view(vi) {};
+    //display(const display& source){};
 	void doCommand(string name) { d_view->display(d_model->get_maze(name)); };
+
 	~display(){};
 
 private:

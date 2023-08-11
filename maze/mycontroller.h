@@ -17,7 +17,7 @@ class not_found : public exception{
 class mycontroller : public controller , public exception
 {
 public:
-	mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map) {};
+	mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map) {vi->initcli(c_map);};
 	~mycontroller(){};
 	void doCommand(string com,string arg );
 	void update(string com, string arg){ doCommand(com,arg);};
