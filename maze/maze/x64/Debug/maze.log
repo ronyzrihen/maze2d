@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mymodel.h(73): warning C4715: 'mymodel::load': not all control paths return a value
+  maze.vcxproj -> C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\x64\Debug\maze.exe
