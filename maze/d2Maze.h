@@ -28,15 +28,15 @@ public:
     void move_down();
     void move_left();
     void move_right();
-    pos getStartPosition(){return start;};
-    pos getGoalPsition(){return end;};
-    pos getPlayerPsition(){return player;};
+    pos getStartPosition()const {return start;};
+    pos getGoalPsition() const {return end;};
+    pos getPlayerPsition() const{return player;};
+	int get_dim() const { return m_dim; };
+	vector<vector<Cell> >& get_maze()  {return maze; };
     string* getPossibleMoves();
 	file save_to_file(file f){};
 	int get_size() { return m_size; };
-	vector<vector<Cell> >& get_maze() { return maze; };
-	int get_dim() { return m_dim; };
-	
+
 
 
 

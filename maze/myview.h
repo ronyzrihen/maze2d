@@ -5,6 +5,8 @@
 #include "d2Maze.h"
 #include "view.h"
 #include "observer.h"
+#include <stdexcept>
+#include "exceptions.h"
 
 using namespace std;
 
@@ -12,20 +14,26 @@ using namespace std;
 class myview : public view
 {
 public:
-	myview() : cli(NULL) {};
-	~myview(){};
+	myview(istream & input = std::cin, ostream & output = std::cout): state(){ cli = new Cli(this ,input,output);};
+	~myview(){delete cli;};
 	string dir(){};
-	void display(d2Maze maze);
+	void display(d2Maze maze){cli->display(maze);};
 	void display_solution(string){};
 	int file_size(file file_name){};
-	void notify(string com, string arg){};
-	void maze_size(string name, int size) { cout << name << "size is : " << size << endl; };
+	void notify();
+	void maze_size(string name, int size) override { cout << name << "size is : " << size << endl; };
 	void dir(string name,string nadir) { cout << name << "dir is : " << nadir << endl; };
-	void attach(observer* ob) {observers.push_back(ob);};
-	void detach(observer* ob) ;
-    void initcli(map<string,command*>com){cli=new Cli(com);};
+	void attach(observer* ob) override {observers.push_back(ob);};
+    void detach(observer* ob) override;
+    void initcli(map<string,command*>com){cli->addCommands(com);};
+    void set_state(string aCommand);
+    string get_state(){return state;};
+    string get_input(){cli->get_input();};
+    void printToOut(string print){cli->printToOut(print);};
+
 private:
     Cli* cli;
+    string state;
 };
 
 

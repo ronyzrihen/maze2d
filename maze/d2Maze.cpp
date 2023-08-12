@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 d2Maze::d2Maze(int size) : m_dim(size) ,m_size(size), maze(size, vector<Cell>(size)){
 
     int i = rand() % size;
