@@ -14,11 +14,10 @@ using namespace std;
 class mycontroller : public controller
 {
 public:
-	mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map) {vi->initcli(c_map);};
+	mycontroller(view* vi,model* mod,map<string,command*>c_map);
 	~mycontroller(){};
 	void doCommand(string com);
 	void update(subject* sub);
-	
 
 private:
 	view* view_layer;

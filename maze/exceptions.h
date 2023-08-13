@@ -12,6 +12,14 @@ public:
         cout << "\nALGORITHM NOT FOUND!\n";
     }
 
+};class maze_not_found : public exception{
+public:
+    maze_not_found(){};
+    ~maze_not_found(){};
+    const char * what() const noexcept {
+        cout << "\nMAZE NOT FOUND!\n";
+    }
+
 };
 
 class not_found : public exception{

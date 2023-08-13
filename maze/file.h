@@ -1,10 +1,14 @@
 #pragma once
 #include <string>
+#include <vector>
+#include <filesystem>
+#include <fstream>
 using namespace std;
 class file
 {
 public:
-	file(){};
+	file(vector<int>& maze ,string name ,filesystem::path dir = "../files/"  );
+
 	~file(){};
 	//bool save(){};
 	//bool load(){};
@@ -15,7 +19,7 @@ public:
 
 private:
 	int f_size;
-	string f_dir;
+    filesystem::path f_dir;
 	string f_name;
 };
 

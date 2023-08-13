@@ -45,7 +45,8 @@ d2Maze mymodel:: generate_maze(string algoname, int dim,string mazename) {
         d2Maze newMaze = algorithms[algoname]->generate_maze(dim);
         add_maze(mazename, newMaze);
         try {
-            notify("generate_success", mazename);
+            set_state("Maze " + mazename + " is ready\n");
+            notify();
         }catch(exception* e){
             e->what();
         }
@@ -55,7 +56,7 @@ d2Maze mymodel:: generate_maze(string algoname, int dim,string mazename) {
 
 }
 
-void mymodel::notify(string command, string arg) {
+void mymodel::notify() {
 
     for (size_t i = 0; i < observers.size(); i++)
     {

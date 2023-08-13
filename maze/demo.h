@@ -3,7 +3,9 @@
 //
 
 #include "controller.h"
+#include "Maze2dGenerator.h"
 #include "d2Maze.h"
+
 
 
 class demo {
@@ -12,5 +14,6 @@ public:
      ~demo(){};
     void run();
 private:
+    Generator* gen;
 
 };

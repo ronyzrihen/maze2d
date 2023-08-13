@@ -13,17 +13,18 @@ void Cli::display(d2Maze& maze) const {
     int endX = maze.getGoalPsition().get_row();
     int endY = maze.getGoalPsition().get_col();
     for (int i = 0; i < maze.get_dim(); ++i) {
+            out << "|";
         for (int j = 0; j < maze.get_dim(); ++j) {
-            cout << (maze.get_maze()[i][j].topWall ? "---" : "- -");
+            out << (maze.get_maze()[i][j].topWall? "=====" : "=| |=");
         }
-        cout << "|" << endl;
-
+        out << "|" << endl;
+        out << "|";
         for (int j = 0; j < maze.get_dim(); ++j) {
-            cout << (maze.get_maze()[i][j].leftWall ? "|" : " ");
-            cout << (i == playerX && j == playerY ? "@" : i == startX && j == startY ? "s" : (i == endX - 1 && j == endY - 1 ? "e" :  " "));
-            cout << (j == maze.get_dim() - 1 ? "|" : " ");
+            out << ( maze.get_maze()[i][j].leftWall ? "| " : "  ");
+            out << (i == playerX && j == playerY ? "@" : (i == startX && j == startY) ? "s" : (i == endX - 1 && j == endY - 1 ? "e" :  " "));
+            out << (j == maze.get_dim() - 1 ? "  |" : "  ");
         }
-        cout << endl;
+        out << endl;
 
 //        for (int j = 0; j < maze.get_dim(); ++j) {
 //            cout << (maze.get_maze()[i][j].leftWall ? "|" : " ");
@@ -32,32 +33,58 @@ void Cli::display(d2Maze& maze) const {
 //        }
 //        cout << (maze.get_maze()[i][maze.get_dim() - 1].rightWall ? "|" : " ") << endl;
     }
-
+        out << "|";
     for (int j = 0; j < maze.get_dim(); ++j) {
-        cout << "---";
+        out <<  "=====";
     }
-    cout << "|" << endl;
+    out << "|" << endl;
 }
 
 
 string Cli::get_input(){
     string line;
     getline(in,line);
-    aView->set_state(line);
+    if (line == ""){
+        getline(in,line);
+    }
+    return line;
+
 }
 void Cli::startCli(){
 string aCommand;
-
+    out << "-- Enter \"exit\" to exit --\n";
+    out << "-- Enter \"list\" to see command list --\n";
+    printcommands();
     for(;;){
+        bool flag = false;
+        out << ">>>> ";
         getline(in, aCommand);
+        if(aCommand == ""){
+            getline(in, aCommand);
+        }
         if(aCommand == "exit" || aCommand == "Exit"){
             return;
         }
-    printcommands();
-    cout << ">>>> ";
-    cin >> aCommand;
-    aView->set_state(aCommand);
-    aView->notify();
+        if(aCommand == "list"){
+            printcommands();
+        }
+    //in >> aCommand;
+    for(auto com : commands){
+        if(com.second == aCommand){
+            try{
+            aView->set_state(aCommand);
+            aView->notify();
+            }catch(exception* e){
+                e->what();
+            }
+            flag = true;
+            break;
+        }
+
+    }
+    if(!flag){
+        out << "Command Was Not Found!";
+    }
     }
 
 }
@@ -66,7 +93,7 @@ string aCommand;
 
 void Cli::addCommands(map<string,command*> com){
 
-    //map<string,command*>::iterator it = com.begin();
+
     int i=0;
     for( const auto& a_com : com) {
         commands[i++] = a_com.first;
@@ -77,6 +104,6 @@ void Cli::addCommands(map<string,command*> com){
 void Cli::printcommands(){
     cout << "--== COMMAND LIST ==--\n";
     for(const auto& aCommand : commands){
-        cout << aCommand.first << ".  " << aCommand.first << endl;
+        cout << aCommand.first << ".  " << aCommand.second << endl;
     }
 }

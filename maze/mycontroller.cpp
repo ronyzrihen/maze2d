@@ -3,7 +3,11 @@
 //
 #include "mycontroller.h"
 
-
+mycontroller::mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map){
+    view_layer->attach(this);
+    model_layer->attach(this);
+    view_layer->initcli(c_map);
+}
 
 void mycontroller::doCommand(string com) {
 
@@ -13,16 +17,18 @@ void mycontroller::doCommand(string com) {
         commands[com]->doCommand();
     }
     else {
-        throw not_found();
+      throw string("shit");
     }
 
 
 }
 
-void mycontroller::update(subject* sub){
-try{
+void mycontroller::update(subject* sub) {
+try {
+
     doCommand(sub->get_state());
-}catch(exception e){
-    throw not_found();
+}catch(string error){
+    view_layer->printToOut(sub->get_state());
 }
+
 }

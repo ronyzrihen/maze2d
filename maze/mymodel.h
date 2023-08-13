@@ -23,19 +23,20 @@ public:
 	bool save(string, d2Maze maze);
 	d2Maze load(string, string);
 	void addalgo(string name, Generator* algo);
+	void addFile(string name, file newFile){};
 	string what() { return "not found\n"; };
-	int get_size(string name) { return files[name].size(); };
+	int get_size(string name) { return files[name]->size(); };
 	d2Maze& get_maze(string name) { return mazes[name]; };
 	void attach(observer* ob);
 	void detach(observer* ob);
 	void add_maze(string name, d2Maze maze);
 
-    void notify(string com, string arg);
-    void set_state(string aCommand){};
+    void notify();
+    void set_state(string aCommand){state = aCommand;};
     string get_state(){return state;};
 
 private:
-	 map <string,file > files;
+	 map <string,file* > files;
 	 map<string, d2Maze> mazes;
 	 map<string, Generator* > algorithms;
      string state;

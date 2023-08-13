@@ -2,7 +2,9 @@
 #include "pos.h"
 #include "file.h"
 #include <vector>
+#include <stack>
 #include <iostream>
+#include <cmath>
 
 
 
@@ -22,6 +24,7 @@ class d2Maze
 {
 public:
 	d2Maze(int size);
+    d2Maze(vector<int> binaryMaze);
     d2Maze(){};
 	~d2Maze(){};
     void move_up();
@@ -32,11 +35,16 @@ public:
     pos getGoalPsition() const {return end;};
     pos getPlayerPsition() const{return player;};
 	int get_dim() const { return m_dim; };
+    vector<string> getPossibleMoves();
 	vector<vector<Cell> >& get_maze()  {return maze; };
-    string* getPossibleMoves();
 	file save_to_file(file f){};
 	int get_size() { return m_size; };
 
+    int extract_int(vector<int>& binaryMaze);
+    //int extract_int(int decimalNumber);
+    int binaryToDecimal(int binaryNumber);
+    int decimalToBinary(int decimalNumber, vector<int>& binary_vec);
+    vector<int> GetData();
 
 
 

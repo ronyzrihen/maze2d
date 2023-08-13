@@ -11,9 +11,9 @@ using namespace std;
 
 class generate_maze : public command{
 public:
-    generate_maze(model* mod): m_model(mod){}
+    generate_maze(model* mod) : m_model(mod){}
     ~generate_maze(){};
-    void doCommand(string name);
+    void doCommand();
 private:
     model* m_model;
 };
@@ -37,12 +37,15 @@ private:
 };
 
 
-void generate_maze:: doCommand(string name){
+void generate_maze::doCommand(){
     string alg;
+    string name;
     int size;
     cout<< "choose algorithm: ";
     cin>>alg;
-    cout<<"enter maze size:";
+    cout<<"enter maze name: ";
+    cin>>name;
+    cout<<"enter maze size: ";
     cin>>size;
 
     m_model->generate_maze(alg,size,name);

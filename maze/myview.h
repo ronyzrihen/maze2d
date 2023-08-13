@@ -21,14 +21,14 @@ public:
 	void display_solution(string){};
 	int file_size(file file_name){};
 	void notify();
-	void maze_size(string name, int size) override { cout << name << "size is : " << size << endl; };
+	void maze_size(string name, int size) override {cli->maze_size(name, size);};
 	void dir(string name,string nadir) { cout << name << "dir is : " << nadir << endl; };
 	void attach(observer* ob) override {observers.push_back(ob);};
     void detach(observer* ob) override;
     void initcli(map<string,command*>com){cli->addCommands(com);};
     void set_state(string aCommand);
     string get_state(){return state;};
-    string get_input(){cli->get_input();};
+    string get_input(){return cli->get_input();};
     void printToOut(string print){cli->printToOut(print);};
 
 private:
