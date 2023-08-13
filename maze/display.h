@@ -11,7 +11,8 @@ class display :public command
 {
 public:
 	display(model* mod, view* vi) :d_model(mod), d_view(vi) {};
-	void doCommand(string name) { d_view->display(d_model->get_maze(name)); };
+	void doCommand();
+
 	~display(){};
 
 private:
@@ -19,8 +20,3 @@ private:
 	view* d_view;
 
 };
-
-
-//void display::doCommand(string name) {
-//	d_view->display(d_model->get_maze(name));
-//}

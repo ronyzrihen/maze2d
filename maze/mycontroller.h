@@ -1,21 +1,23 @@
 #pragma once
 #include "model.h"
-#include "myview.h"
+#include "view.h"
 #include "command.h"
 #include "controller.h"
 #include <map>
 #include <string>
+#include "exception"
+#include "exceptions.h"
 using namespace std;
+
 
 
 class mycontroller : public controller
 {
 public:
-	mycontroller(view* vi,model* mod,map<string,command*>c_map):view_layer(vi),model_layer(mod),commands(c_map) {};
+	mycontroller(view* vi,model* mod,map<string,command*>c_map);
 	~mycontroller(){};
-	void doCommand(string com,string arg );
-	void update(command* action,  string detail);
-	
+	void doCommand(string com);
+	void update(subject* sub);
 
 private:
 	view* view_layer;
@@ -26,23 +28,4 @@ private:
 
 
 
-void mycontroller::doCommand(string com,string arg) {
-	
-	std::map<string, command*>::iterator it;
-	it = commands.find(com);
-	if (it != commands.end()) {
-	 commands[com]->doCommand(arg);
-	}
-	else {
-		cout << "erorr\n";
-	}
 
-
-}
-
-
-
-void mycontroller::update(command* action ,string detail) {
-
-	action->doCommand(detail);
-}

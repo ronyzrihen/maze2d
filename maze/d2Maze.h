@@ -2,6 +2,9 @@
 #include "pos.h"
 #include "file.h"
 #include <vector>
+#include <stack>
+#include <iostream>
+#include <cmath>
 
 
 
@@ -20,33 +23,42 @@ struct Cell {
 class d2Maze
 {
 public:
-	d2Maze(int size) : m_dim(size) ,m_size(size), maze(size, vector<Cell>(size)) {};
-	d2Maze() {};
+	d2Maze(int size);
+    d2Maze(vector<int> binaryMaze);
+    d2Maze(){};
 	~d2Maze(){};
-	int move_up(int i, int j){};
-	int move_down(int i, int j){};
-	int move_left(int i, int j){};
-	int move_right(int i, int j){};
-	file save_to_file(file f);
+    void move_up();
+    void move_down();
+    void move_left();
+    void move_right();
+    pos getStartPosition()const {return start;};
+    pos getGoalPsition() const {return end;};
+    pos getPlayerPsition() const{return player;};
+	int get_dim() const { return m_dim; };
+    vector<string> getPossibleMoves();
+	vector<vector<Cell> >& get_maze()  {return maze; };
+	file save_to_file(file f){};
 	int get_size() { return m_size; };
-	vector<vector<Cell>>& get_maze() { return maze; };
-	int get_dim() { return m_dim; };
-	
+
+    int extract_int(vector<int>& binaryMaze);
+    //int extract_int(int decimalNumber);
+    int binaryToDecimal(int binaryNumber);
+    int decimalToBinary(int decimalNumber, vector<int>& binary_vec);
+    vector<int> GetData();
 
 
 
 private:
 
-	vector<vector<Cell>> maze;
+	vector<vector<Cell> > maze;
 	int m_dim;
-	//pos player;
-	//pos end;
-	//pos start;
+	pos player;
+	pos end;
+	pos start;
 	int m_size;
 
 
 
 };
-
 
 

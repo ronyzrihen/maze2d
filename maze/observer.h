@@ -5,13 +5,13 @@
 #include "command.h"
 using namespace std;
 
-
+class subject;
 class observer
 {
 public:
 	observer(){};
 	~observer(){};
-	virtual void update(command* com)=0;
+	virtual void update(subject* sub)=0;
 private:
 
 };

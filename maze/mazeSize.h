@@ -10,9 +10,9 @@ using namespace std;
 class mazesize :public command
 {
 public:
-	mazesize(model* mod,view* vi):command(),m_model(mod),m_view(vi) {};
+	mazesize(model* mod,view* vi):m_model(mod),m_view(vi) {};
 	~mazesize(){};
-	void doCommand(string name)  { m_view->maze_size(name, m_model->get_size(name)); };
+	void doCommand();
 
 private:
 	model* m_model;
