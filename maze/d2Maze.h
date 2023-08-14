@@ -37,7 +37,6 @@ public:
 	int get_dim() const { return m_dim; };
     vector<string> getPossibleMoves();
 	vector<vector<Cell> >& get_maze()  {return maze; };
-	file save_to_file(file f){};
 	int get_size() { return m_size; };
 
     int extract_int(vector<int>& binaryMaze);

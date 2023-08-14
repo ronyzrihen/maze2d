@@ -2,28 +2,43 @@
 #include "mymodel.h"
 #include "mycontroller.h"
 #include "mazeSize.h"
+#include "file_size.h"
 #include "display.h"
 #include "generate_success.h"
 #include "file.h"
+#include "save_maze.h"
+#include "load_maze.h"
+#include  "dir.h"
+#include "Searcher.h"
+#include "BFS.h"
+#include "solve.h"
+#include "display_solution.h"
 using namespace std;
 
 int main() {
     myview newvi;
     mymodel newmod;
     Generator* gen = new simpleGenerator();
+    Searcher<string>* bfs_searcher = new BFS<string>();
     gen->measureAlgorithmTime();
     cout << "\n-----------------------------------------------\n";
-    newmod.addalgo("s", gen);
+    newmod.addGen("g", gen);
+    newmod.addSearcher("s", bfs_searcher);
     map<string, command*> com;
     com["display"] = new display(&newmod, &newvi);
-    com["mazesize"] = new mazesize(&newmod ,&newvi);
-    //com["generate_success"] = new generate_success(&newvi);
-    com["generate_maze"] = new generate_maze(&newmod);
+    com["maze size"] = new mazesize(&newmod ,&newvi);
+    com["file size"] = new file_size(&newmod ,&newvi);
+    com["save"] = new save_maze(&newvi, &newmod);
+    com["load"] = new load_maze(&newvi, &newmod);
+    com["dir"] = new dir(&newvi, &newmod);
+    com["solve"] = new solve(&newvi, &newmod);
+    com["generate maze"] = new generate_maze(&newmod);
+    com["display solush"] = new display_solution(&newvi, &newmod);
 
     mycontroller newcon(&newvi,&newmod,com);
     newvi.attach(&newcon);
     newmod.attach(&newcon);
-    newcon.doCommand("generate_maze");
+    newcon.doCommand("generate maze");
 
     pos g = newmod.get_maze("t").getGoalPsition();
     cout << g << ", ";
@@ -41,9 +56,10 @@ int main() {
     cout << endl;
 
     file m_file(vec,"hi");
-    d2Maze binaryMaze(vec);
-   newmod.add_maze("hi",binaryMaze);
-   newcon.doCommand("display");
+    d2Maze binaryMaze(m_file.load());
+    newmod.add_maze("hi",binaryMaze);
+    newcon.doCommand("display");
+
 
 
 

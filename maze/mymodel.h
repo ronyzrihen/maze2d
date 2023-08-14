@@ -9,36 +9,48 @@
 #include "command.h"
 #include "exception"
 #include "exceptions.h"
+#include "d2MazeSearchable.h"
 using namespace std;
 
 
 
-class mymodel:public model
+class mymodel:public model<string>
 {
 public:
 	mymodel() {};
 	~mymodel(){};
+
+    Solution<string>* get_solution(string mazeName);
 	d2Maze generate_maze(string algoname, int dim, string mazename);
 	//d2Maze solve();
-	bool save(string, d2Maze maze);
-	d2Maze load(string, string);
-	void addalgo(string name, Generator* algo);
-	void addFile(string name, file newFile){};
-	string what() { return "not found\n"; };
-	int get_size(string name) { return files[name]->size(); };
-	d2Maze& get_maze(string name) { return mazes[name]; };
+	bool save(string aFile, d2Maze maze);
+	d2Maze& load(string fileName, string mazeName);
+    void solve(string searcherName , string mazeName);
+	int get_file_size(string name) { return files[name]->size(); };
+	int get_maze_size(string name) { return mazes[name]->get_size(); };
+	d2Maze& get_maze(string name) { return *mazes[name]; };
+    bool is_maze_exist(string MazeName);
+    bool is_file_exist(string fileName) ;
+
+
+	void addGen(string name, Generator* algo);
+	void addSearcher(string name, Searcher<string>* algo);
+	void addFile(string name, file newFile);
+    void add_maze(string name, d2Maze maze);
+
+    //observer methods
 	void attach(observer* ob);
 	void detach(observer* ob);
-	void add_maze(string name, d2Maze maze);
-
     void notify();
     void set_state(string aCommand){state = aCommand;};
     string get_state(){return state;};
 
 private:
 	 map <string,file* > files;
-	 map<string, d2Maze> mazes;
-	 map<string, Generator* > algorithms;
+	 map<string, d2Maze*> mazes;
+	 map<string, Generator* > generators;
+	 map<string, Searcher<string>*> solvers;
+	 map<string, Solution<string>*> solution_cache;
      string state;
 
 

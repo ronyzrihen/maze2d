@@ -9,4 +9,4 @@ set(SOURCES
         main.cpp  # Add your main source file here
         )
 
-add_executable(maze2d "maze/main.cpp" maze/myview.cpp maze/Maze2dGenerator.cpp maze/generate_success.h maze/d2Maze.cpp maze/demo.h maze/Cli.h maze/Cli.cpp maze/mycontroller.cpp maze/display.cpp maze/mymodel.cpp maze/exceptions.h maze/mazeSize.cpp maze/pos.cpp maze/Searchable.h maze/State.h maze/d2MazeSearchableT.h maze/demo.cpp maze/file.cpp)
+add_executable(maze2d "maze/main.cpp" maze/Maze2dGenerator.cpp maze/generate_success.h maze/d2Maze.cpp maze/Cli.h maze/Cli.cpp maze/mymodel.cpp maze/exceptions.h maze/pos.cpp maze/Searchable.h maze/State.h maze/d2MazeSearchable.h maze/file.cpp maze/load_maze.h maze/save_maze.h maze/dir.h maze/file_size.h maze/file_size.h maze/Solution.h maze/Searcher.h maze/BFS.h maze/CommonSearcher.h maze/solve.h maze/display_solution.h maze/myview.cpp)
