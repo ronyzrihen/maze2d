@@ -13,7 +13,8 @@ public:
     ~algo_not_found(){};
     const char * what() const noexcept {
         cout << "\nALGORITHM NOT FOUND!\n";
-    }
+        return NULL;
+    };
 
 };class maze_not_found : public exception{
 public:
@@ -21,6 +22,7 @@ public:
     ~maze_not_found(){};
     const char * what() const noexcept {
         cout << "\nMAZE NOT FOUND!\n";
+        return NULL;
     }
 
 };
@@ -29,6 +31,7 @@ class not_found : public exception{
 public:
     const char * what() const noexcept override{
         return "\nCouldn't find command in map\n";
+        return NULL;
     }
 };
 
@@ -38,6 +41,7 @@ public:
     ~update_failed(){};
     const char * what() const noexcept override{
         cout << "\nUPDATE FAILED!\n";
+        return NULL;
     }
 };
 
@@ -47,6 +51,7 @@ public:
     ~open_failed(){};
     const char * what() const noexcept {
         cout << "\nCOULDN'T OPEN FILE!\n";
+        return NULL;
     }
 
 };

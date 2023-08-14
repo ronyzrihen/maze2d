@@ -9,15 +9,21 @@
 #include "save_maze.h"
 #include "load_maze.h"
 #include  "dir.h"
+#include "Searcher.h"
+#include "BFS.h"
+#include "solve.h"
+#include "display_solution.h"
 using namespace std;
 
 int main() {
     myview newvi;
     mymodel newmod;
     Generator* gen = new simpleGenerator();
+    Searcher<string>* bfs_searcher = new BFS<string>();
     gen->measureAlgorithmTime();
     cout << "\n-----------------------------------------------\n";
-    newmod.addalgo("s", gen);
+    newmod.addGen("g", gen);
+    newmod.addSearcher("s", bfs_searcher);
     map<string, command*> com;
     com["display"] = new display(&newmod, &newvi);
     com["maze size"] = new mazesize(&newmod ,&newvi);
@@ -25,7 +31,9 @@ int main() {
     com["save"] = new save_maze(&newvi, &newmod);
     com["load"] = new load_maze(&newvi, &newmod);
     com["dir"] = new dir(&newvi, &newmod);
+    com["solve"] = new solve(&newvi, &newmod);
     com["generate maze"] = new generate_maze(&newmod);
+    com["display solush"] = new display_solution(&newvi, &newmod);
 
     mycontroller newcon(&newvi,&newmod,com);
     newvi.attach(&newcon);

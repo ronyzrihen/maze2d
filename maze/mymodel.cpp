@@ -3,12 +3,50 @@
 //
 #include "mymodel.h"
 
+Solution<string>* mymodel::get_solution(string mazeName){
+    auto it = solution_cache.find(mazeName);
+    if(it != solution_cache.end()){
+    return solution_cache[mazeName];
+    }
+
+}
 
 
-void mymodel:: addalgo(string name, Generator* algo) {
+void mymodel::solve(string searcherName , string mazeName){
+    if(is_maze_exist(mazeName)){
+    d2Maze* maze = mazes[mazeName];
+    auto it_cache = solution_cache.find(mazeName);
+    if(it_cache != solution_cache.end()){
+        state = "Solution for " + mazeName + " is ready";
+        notify();
+
+    }
+    d2MazeSearchable searchableMaze(*maze);
+    auto it = solvers.find(searcherName);
+    if(it != solvers.end()){
+        Solution<string>* sol = new Solution<string>(solvers[searcherName]->search(searchableMaze));
+        solution_cache[mazeName] = sol;
+
+        state = "Solution for " + mazeName + " is ready";
+        notify();
+
+    }
+    }
+
+}
+
+void mymodel:: addGen(string name, Generator* algo) {
     if (!generators.count(name)) {
 
         generators[name] = algo;
+    }
+    else {
+        throw algo_not_found();
+    }
+}
+void mymodel::addSearcher(string name, Searcher<string>* algo) {
+    if (!solvers.count(name)) {
+        solvers[name] = algo;
     }
     else {
         throw algo_not_found();
@@ -51,7 +89,7 @@ d2Maze mymodel:: generate_maze(string algoname, int dim,string mazename) {
         d2Maze newMaze = generators[algoname]->generate_maze(dim);
         add_maze(mazename, newMaze);
         try {
-            set_state("Maze " + mazename + " is ready\n");
+            state = "Maze " + mazename + " is ready\n";
             notify();
         }catch(exception* e){
             e->what();

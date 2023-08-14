@@ -4,10 +4,10 @@
 #include "command.h"
 #include "model.h"
 #include "view.h"
-
+template<class T>
 class load_maze : public command{
 public:
-    load_maze(view* vi , model* mod ):c_view(vi), c_model(mod){};
+    load_maze(view<T>* vi , model<T>* mod ):c_view(vi), c_model(mod){};
     ~load_maze(){};
     void doCommand()
     {
@@ -33,6 +33,6 @@ public:
     };
 
 private:
-    view* c_view;
-    model* c_model;
+    view<T>* c_view;
+    model<T>* c_model;
 };

@@ -10,7 +10,7 @@ public:
 	virtual Solution<T> search(const Searchable<T>& s) 
 	{
 		/*TODO search code*/ 
-		
+		cout << "\nSOLVING USING BFS ALGORITHM!!!\n";
 		
 		return Solution<T>(); 
 	};

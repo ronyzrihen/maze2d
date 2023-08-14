@@ -2,10 +2,11 @@
 #include "view.h"
 #include "model.h"
 using namespace std;
+template<class T>
 class file_size : public command{
 
 public:
-    file_size( model* mod ,view* vi): c_view(vi), c_model(mod){};
+    file_size( model<T>* mod ,view<T>* vi): c_view(vi), c_model(mod){};
     ~file_size(){};
     void doCommand()
     {
@@ -15,8 +16,8 @@ public:
     };
 
 private:
-    view* c_view;
-    model* c_model;
+    view<T>* c_view;
+    model<T>* c_model;
 
 
 };
