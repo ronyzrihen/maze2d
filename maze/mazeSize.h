@@ -6,17 +6,27 @@
 #include <string>
 
 using namespace std;
-
+template<class T>
 class mazesize :public command
 {
 public:
-	mazesize(model* mod,view* vi):command(),m_model(mod),m_view(vi) {};
+	mazesize(model<T>* mod,view<T>* vi):m_model(mod),m_view(vi) {};
 	~mazesize(){};
-	void doCommand(string name)  { m_view->maze_size(name, m_model->get_size(name)); };
+	void doCommand();
 
 private:
-	model* m_model;
-	view* m_view;
+	model<T>* m_model;
+	view<T>* m_view;
 
 };
 
+template<class T>
+void mazesize<T>::doCommand(){
+    m_view->printToOut("Enter Maze Name: ");
+    string name = m_view->get_input();
+	if (m_model->is_maze_exist(name)) {
+    m_view->size(name, m_model->get_maze_size(name));
+	return;
+	}
+	m_view->printToOut("maze dont exeist");
+}

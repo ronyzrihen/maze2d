@@ -1,33 +1,14 @@
 ﻿  main.cpp
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\myview.h(12,1): error C2504: 'view': base class undefined
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\myview.h(26,6): error C3646: 'UI': unknown override specifier
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\myview.h(26,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\myview.h(14,11): error C2614: 'myview': illegal member initialization: 'view' is not a base or member
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\CLI.h(13,5): error C2512: 'std::basic_ostream<char,std::char_traits<char>>': no appropriate default constructor available
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\iosfwd(236,23): message : see declaration of 'std::basic_ostream<char,std::char_traits<char>>'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\CLI.h(13,5): error C2512: 'std::basic_istream<char,std::char_traits<char>>': no appropriate default constructor available
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\iosfwd(235,23): message : see declaration of 'std::basic_istream<char,std::char_traits<char>>'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(17,57): error C2665: 'display::display': none of the 2 overloads could convert all the argument types
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\display.h(13,2): message : could be 'display::display(model *,view *)'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(17,40): message : 'display::display(model *,view *)': cannot convert argument 2 from 'myview *' to 'view *'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(17,50): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\display.h(13,2): message : see declaration of 'display::display'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(17,57): message : while trying to match the argument list '(mymodel *, myview *)'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(18,59): error C2665: 'mazesize::mazesize': none of the 2 overloads could convert all the argument types
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mazeSize.h(13,2): message : could be 'mazesize::mazesize(model *,view *)'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(18,41): message : 'mazesize::mazesize(model *,view *)': cannot convert argument 2 from 'myview *' to 'view *'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(18,51): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mazeSize.h(13,2): message : see declaration of 'mazesize::mazesize'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(18,59): message : while trying to match the argument list '(mymodel *, myview *)'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(20,44): error C2665: 'mycontroller::mycontroller': none of the 2 overloads could convert all the argument types
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mycontroller.h(14,2): message : could be 'mycontroller::mycontroller(view *,model *,std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(20,25): message : 'mycontroller::mycontroller(view *,model *,std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)': cannot convert argument 1 from 'myview *' to 'view *'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(20,26): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mycontroller.h(14,2): message : see declaration of 'mycontroller::mycontroller'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\main.cpp(20,44): message : while trying to match the argument list '(myview *, mymodel *, std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)'
-  myview.cpp
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\CLI.h(13,5): error C2512: 'std::basic_ostream<char,std::char_traits<char>>': no appropriate default constructor available
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\iosfwd(236,23): message : see declaration of 'std::basic_ostream<char,std::char_traits<char>>'
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\CLI.h(13,5): error C2512: 'std::basic_istream<char,std::char_traits<char>>': no appropriate default constructor available
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\iosfwd(235,23): message : see declaration of 'std::basic_istream<char,std::char_traits<char>>'
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\Cli.h(102,28): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\Cli.h(77): message : while compiling class template member function 'void Cli<std::string>::startCli(void)'
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\Cli.h(125): message : see reference to function template instantiation 'void Cli<std::string>::startCli(void)' being compiled
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\Cli.h(118): message : while compiling class template member function 'void Cli<std::string>::addCommands(std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)'
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\myview.h(26): message : see reference to function template instantiation 'void Cli<std::string>::addCommands(std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)' being compiled
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\myview.h(17): message : see reference to class template instantiation 'Cli<std::string>' being compiled
+  mymodel.cpp
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\mymodel.cpp(97,20): warning C4834: discarding return value of function with 'nodiscard' attribute
   Generating Code...
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\mymodel.cpp(12): warning C4715: 'mymodel::get_solution': not all control paths return a value
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\mymodel.cpp(82): warning C4715: 'mymodel::load': not all control paths return a value
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\mymodel.cpp(78): warning C4172: returning address of local variable or temporary: newMaze
+  maze.vcxproj -> C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\x64\Debug\maze.exe

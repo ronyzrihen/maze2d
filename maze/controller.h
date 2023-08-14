@@ -7,11 +7,11 @@
 using namespace std;
 
 
-class controller
+class controller :public observer
 {
 public:
-	controller();
-	~controller();
+	controller(){};
+	~controller(){};
 
 private:
 

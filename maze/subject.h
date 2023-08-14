@@ -14,8 +14,11 @@ public:
 	~subject(){};
 	virtual void attach(observer* ob)=0;
 	virtual void detach(observer* ob)=0;
-	virtual void notify(command* com) = 0;
-private:
+	virtual void notify() = 0;
+    virtual void set_state(string aCommand) = 0;
+    virtual string get_state() = 0;
+protected:
+    vector<observer*>observers;
 
 };
 

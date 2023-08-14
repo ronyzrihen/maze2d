@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,14 +129,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cli.cpp" />
+    <ClCompile Include="d2Maze.cpp" />
+    <ClCompile Include="file.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maze2dGenerator.cpp" />
+    <ClCompile Include="mymodel.cpp" />
     <ClCompile Include="myview.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="pos.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLI.h" />
     <ClInclude Include="command.h" />
+    <ClInclude Include="CommonSearcher.h" />
     <ClInclude Include="controller.h" />
+    <ClInclude Include="file_size.h" />
     <ClInclude Include="mycontroller.h" />
     <ClInclude Include="d2Maze.h" />
     <ClInclude Include="dGenerator2SimpleMaze.h" />
@@ -147,6 +156,7 @@
     <ClInclude Include="mymodel.h" />
     <ClInclude Include="observer.h" />
     <ClInclude Include="pos.h" />
+    <ClInclude Include="solve.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="myview.h" />
     <ClInclude Include="view.h" />

@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "dGenerator2SimpleMaze.h"
 #include "d2Maze.h"
+#include "Maze2dGenerator.h"
 
 using namespace std;
-class simpleGenerator 
+class simpleGenerator :public Generator
 {
 public:
     simpleGenerator() {};
@@ -13,17 +13,13 @@ public:
 	 d2Maze generate_maze(int maze_size) ;
      void generate(int row, int col, d2Maze& maze);
 
-
-private:
-
 };
 
 
 d2Maze simpleGenerator::generate_maze(int maze_size) {
 
     d2Maze newmaze(maze_size);
-    generate(0, 0, newmaze);
-
+    generate(newmaze.getStartPosition().get_row(), newmaze.getStartPosition().get_col(), newmaze);
     return newmaze;
 
 }

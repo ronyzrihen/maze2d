@@ -9,5 +9,5 @@ class command
 public:
 	command(){};
 	~command(){};
-	virtual void doCommand(string name) = 0;
+	virtual void doCommand() = 0;
 };

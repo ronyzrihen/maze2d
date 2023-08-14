@@ -6,21 +6,26 @@
 #include "view.h"
 
 using namespace std;
-
-class display
+template<class T>
+class display :public command
 {
 public:
-	display(model* mod, view* vi) :d_model(mod), d_view(vi) {};
-	void doCommand(string name);
+	display(model<T>* mod, view<T>* vi) :d_model(mod), d_view(vi) {};
+	void doCommand();
+
 	~display(){};
 
 private:
-	model* d_model;
-	view* d_view;
+	model<T>* d_model;
+	view<T>* d_view;
 
 };
 
+template<class T>
+void display<T>::doCommand(){
+    d_view->printToOut("Enter Maze Name: ");
+    string name = d_view->get_input();
 
-void display::doCommand(string name) {
-	d_view->display(d_model->get_maze(name));
+    d_view->display( d_model->get_maze(name));
+    ;
 }
