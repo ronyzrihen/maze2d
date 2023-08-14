@@ -7,6 +7,6 @@
 void mazesize::doCommand(){
     m_view->printToOut("Enter Maze Name: ");
     string name = m_view->get_input();
-    m_view->maze_size(name, m_model->get_size(name));
+    m_view->size(name, m_model->get_maze_size(name));
 
 }

@@ -6,9 +6,9 @@
 
 
 void mymodel:: addalgo(string name, Generator* algo) {
-    if (!algorithms.count(name)) {
+    if (!generators.count(name)) {
 
-        algorithms[name] = algo;
+        generators[name] = algo;
     }
     else {
         throw algo_not_found();
@@ -16,23 +16,29 @@ void mymodel:: addalgo(string name, Generator* algo) {
 }
 
 
-bool mymodel::save(string name, d2Maze maze) {
-    mazes[name] = maze;
-    if (mazes.count(name)) {
-        return true;
-    }
-    return false;
+bool mymodel::save(string fileName, d2Maze maze) {
+
+    vector<int> vec = maze.GetData();
+    file* newFile = new file(vec,fileName);
+    files[fileName] = newFile;
+
 }
 
 
-d2Maze mymodel::load(string name, string) {
+d2Maze& mymodel::load(string fileName, string mazeName) {
 
-    std::map<string, d2Maze>::iterator it;
-    it = mazes.find(name);
-    if (it != mazes.end()) {
-        return mazes[name];
+    if (is_maze_exist(mazeName)) {
+        return *mazes[mazeName];
     }
-    cout << "maze dont exsist" << endl;
+
+
+    if(is_file_exist(fileName) == true){
+        d2Maze newMaze(files[fileName]->load());
+        add_maze(mazeName, newMaze);
+        return newMaze;
+
+    }
+
 }
 
 
@@ -40,9 +46,9 @@ d2Maze mymodel::load(string name, string) {
 d2Maze mymodel:: generate_maze(string algoname, int dim,string mazename) {
 
     std::map<string, Generator*>::iterator it;
-    it = algorithms.find(algoname);
-    if (it != algorithms.end()) {
-        d2Maze newMaze = algorithms[algoname]->generate_maze(dim);
+    it = generators.find(algoname);
+    if (it != generators.end()) {
+        d2Maze newMaze = generators[algoname]->generate_maze(dim);
         add_maze(mazename, newMaze);
         try {
             set_state("Maze " + mazename + " is ready\n");
@@ -86,16 +92,33 @@ void mymodel::detach(observer* ob) {
 
 void mymodel::add_maze(string name, d2Maze maze) {
     if (mazes.size() == 0) {
-        mazes[name] = maze;
+        mazes[name] = new d2Maze(maze);
         return;
     }
-    map<string, d2Maze> ::iterator it = mazes.find(name);
+    map<string, d2Maze*> ::iterator it = mazes.find(name);
 
     if (it == mazes.end() ) {
-        mazes[name] = maze;
+        mazes[name] = new d2Maze(maze);
         return;
     }
 
     throw not_found().what();  //todo change
 
 }
+
+bool  mymodel::is_maze_exist(string MazeName){
+    auto it = mazes.find(MazeName);
+    if(it != mazes.end()){
+        return true;
+    }
+    return false;
+}
+
+bool mymodel::is_file_exist(string fileName) {
+    auto it = files.find(fileName);
+    if(it != files.end()){
+        return true;
+    }
+    return false;
+}
+

@@ -144,7 +144,7 @@ int d2Maze::decimalToBinary(int decimalNumber, vector<int>& binary_vec) {
     }
 }
 
-d2Maze::d2Maze(int size) : m_dim(size) ,m_size(size), maze(size, vector<Cell>(size)){
+d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 
     int i = rand() % size;
     int j = rand() % size;
@@ -154,6 +154,8 @@ d2Maze::d2Maze(int size) : m_dim(size) ,m_size(size), maze(size, vector<Cell>(si
     player.set_row(0);
     end.set_col(j);
     end.set_row(size);
+
+    m_size = GetData().size();
 };
 
 

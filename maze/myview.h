@@ -19,9 +19,8 @@ public:
 	string dir(){};
 	void display(d2Maze maze){cli->display(maze);};
 	void display_solution(string){};
-	int file_size(file file_name){};
 	void notify();
-	void maze_size(string name, int size) override {cli->maze_size(name, size);};
+	void size(string name, int size){cli->size(name, size);};
 	void dir(string name,string nadir) { cout << name << "dir is : " << nadir << endl; };
 	void attach(observer* ob) override {observers.push_back(ob);};
     void detach(observer* ob) override;

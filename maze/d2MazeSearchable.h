@@ -2,10 +2,10 @@
 #include "Searchable.h"
 #include "d2Maze.h"
 
-class d2MazeSearchableT : public Searchable<pos>
+class d2MazeSearchable : public Searchable<pos>
 {
 public:
-    d2MazeSearchableT(d2Maze& maze) : d_maze(&maze) {}
+    d2MazeSearchable(d2Maze& maze) : d_maze(&maze) {}
 
 public:
 	virtual State<pos>* getStartState()

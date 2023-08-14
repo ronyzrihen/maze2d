@@ -3,23 +3,22 @@
 #include <vector>
 #include <filesystem>
 #include <fstream>
+#include "exceptions.h"
 using namespace std;
 class file
 {
 public:
-	file(vector<int>& maze ,string name ,filesystem::path dir = "../files/"  );
-
+	file(vector<int>& maze ,string name ,string = "../files/"  );
 	~file(){};
-	//bool save(){};
-	//bool load(){};
+
+	void save(vector<int> maze);
+    vector<int> load();
 	//string dir(){};
 	int size() { return f_size; };
 
-	
-
 private:
 	int f_size;
-    filesystem::path f_dir;
+    string f_dir;
 	string f_name;
 };
 

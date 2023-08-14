@@ -20,18 +20,11 @@ void Cli::display(d2Maze& maze) const {
         out << "|" << endl;
         out << "|";
         for (int j = 0; j < maze.get_dim(); ++j) {
-            out << ( maze.get_maze()[i][j].leftWall ? "| " : "  ");
+            out << ( j == 0 && maze.get_maze()[i][j].leftWall ? "  " : maze.get_maze()[i][j].leftWall ? "| " : "  ");
             out << (i == playerX && j == playerY ? "@" : (i == startX && j == startY) ? "s" : (i == endX - 1 && j == endY - 1 ? "e" :  " "));
             out << (j == maze.get_dim() - 1 ? "  |" : "  ");
         }
         out << endl;
-
-//        for (int j = 0; j < maze.get_dim(); ++j) {
-//            cout << (maze.get_maze()[i][j].leftWall ? "|" : " ");
-//            cout << " ";
-//            cout << (maze.get_maze()[i][j].rightWall ? "|" : " ");
-//        }
-//        cout << (maze.get_maze()[i][maze.get_dim() - 1].rightWall ? "|" : " ") << endl;
     }
         out << "|";
     for (int j = 0; j < maze.get_dim(); ++j) {
@@ -43,9 +36,9 @@ void Cli::display(d2Maze& maze) const {
 
 string Cli::get_input(){
     string line;
-    getline(in,line);
+    getline(in,line,'\n');
     if (line == ""){
-        getline(in,line);
+        getline(in,line,'\n');
     }
     return line;
 
@@ -57,10 +50,10 @@ string aCommand;
     printcommands();
     for(;;){
         bool flag = false;
-        out << ">>>> ";
-        getline(in, aCommand);
+        out << "\n>>>> ";
+        getline(in, aCommand, '\n');
         if(aCommand == ""){
-            getline(in, aCommand);
+            getline(in, aCommand, '\n');
         }
         if(aCommand == "exit" || aCommand == "Exit"){
             return;
@@ -94,7 +87,7 @@ string aCommand;
 void Cli::addCommands(map<string,command*> com){
 
 
-    int i=0;
+    int i=1;
     for( const auto& a_com : com) {
         commands[i++] = a_com.first;
     }

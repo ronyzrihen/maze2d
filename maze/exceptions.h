@@ -3,6 +3,9 @@
 //
 #pragma once
 #include "exception"
+#include <iostream>
+using namespace std;
+
 
 class algo_not_found : public exception{
 public:
@@ -37,3 +40,14 @@ public:
         cout << "\nUPDATE FAILED!\n";
     }
 };
+
+class open_failed : public exception{
+public:
+    open_failed(){};
+    ~open_failed(){};
+    const char * what() const noexcept {
+        cout << "\nCOULDN'T OPEN FILE!\n";
+    }
+
+};
+

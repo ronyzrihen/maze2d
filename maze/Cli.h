@@ -17,7 +17,7 @@ public:
     void startCli();
     string get_input();
     void printToOut(string print){out << print;};
-    void maze_size(string name, int size){out << name << "size is : " << size << endl;};
+    void size(string name, int size){out << name << " size is : " << size << endl;};
     void display(d2Maze& maze) const;
 
 	
