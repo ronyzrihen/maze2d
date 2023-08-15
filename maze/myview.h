@@ -29,6 +29,7 @@ public:
     string get_input() override {return cli->get_input();};
     void printToOut(string print){cli->printToOut(print);};
 
+    void play(d2Maze* maze){cli->play(maze);};
 private:
     Cli<string>* cli;
     string state;

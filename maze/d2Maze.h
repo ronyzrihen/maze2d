@@ -40,9 +40,8 @@ public:
 	int get_size() { return m_size; };
 
     int extract_int(vector<int>& binaryMaze);
-    //int extract_int(int decimalNumber);
     int binaryToDecimal(int binaryNumber);
-    int decimalToBinary(int decimalNumber, vector<int>& binary_vec);
+    void decimalToBinary(int decimalNumber, vector<int>& binary_vec);
     vector<int> GetData();
 
 

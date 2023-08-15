@@ -54,7 +54,7 @@ void mymodel::addSearcher(string name, Searcher<string>* algo) {
 }
 
 
-bool mymodel::save(string fileName, d2Maze maze) {
+void mymodel::save(string fileName, d2Maze maze) {
 
     vector<int> vec = maze.GetData();
     file* newFile = new file(vec,fileName);

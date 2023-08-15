@@ -22,8 +22,7 @@ public:
 
     Solution<string>* get_solution(string mazeName);
 	d2Maze generate_maze(string algoname, int dim, string mazename);
-	//d2Maze solve();
-	bool save(string aFile, d2Maze maze);
+	void save(string aFile, d2Maze maze);
 	d2Maze& load(string fileName, string mazeName);
     void solve(string searcherName , string mazeName);
 	int get_file_size(string name) { return files[name]->size(); };
