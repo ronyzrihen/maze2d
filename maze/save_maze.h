@@ -25,6 +25,8 @@ template<class T>
 void save_maze<T>::doCommand(){
 
     string mazeName, fileName ,answer;
+    c_view->printToOut("---Maze list---\n");
+    c_view->printstring(c_model->get_mazes());
     while (!c_model->is_maze_exist(mazeName)) {
 
         c_view->printToOut("Enter Maze Name: ");

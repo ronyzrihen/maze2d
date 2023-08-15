@@ -104,5 +104,11 @@
     <ClInclude Include="solve.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="save_maze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generate_success.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

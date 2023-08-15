@@ -32,7 +32,9 @@ public:
     bool is_maze_exist(string MazeName);
     bool is_file_exist(string fileName) ;
 	bool is_alg_exist(string algName);
-
+	vector<string>get_mazes();
+	vector<string>get_gens();
+	vector<string>get_sols();
 
 	void addGen(string name, Generator* algo);
 	void addSearcher(string name, Searcher<string>* algo);

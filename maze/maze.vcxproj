@@ -144,6 +144,7 @@
     <ClInclude Include="CommonSearcher.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="file_size.h" />
+    <ClInclude Include="generate_success.h" />
     <ClInclude Include="mycontroller.h" />
     <ClInclude Include="d2Maze.h" />
     <ClInclude Include="dGenerator2SimpleMaze.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="mymodel.h" />
     <ClInclude Include="observer.h" />
     <ClInclude Include="pos.h" />
+    <ClInclude Include="save_maze.h" />
     <ClInclude Include="solve.h" />
     <ClInclude Include="subject.h" />
     <ClInclude Include="myview.h" />

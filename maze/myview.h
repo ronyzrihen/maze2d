@@ -28,7 +28,7 @@ public:
     string get_state(){return state;};
     string get_input() override {return cli->get_input();};
     void printToOut(string print){cli->printToOut(print);};
-
+    void printstring(vector<string>str);
 private:
     Cli<string>* cli;
     string state;

@@ -169,3 +169,33 @@ bool mymodel:: is_alg_exist(string algName) {
     }
     return false;
 }
+
+
+
+
+vector<string>mymodel::get_mazes() {
+    vector<string>mazesname;
+    for ( auto& maze : mazes)
+    {
+        mazesname.push_back(maze.first);
+    }
+    return mazesname;
+}
+
+vector<string>mymodel::get_gens() {
+    vector<string>genname;
+    for (auto& gen : generators)
+    {
+        genname.push_back(gen.first);
+    }
+    return genname;
+}
+
+vector<string>mymodel::get_sols() {
+    vector<string>solname;
+    for (auto& sol : solvers)
+    {
+        solname.push_back(sol.first);
+    }
+    return solname;
+}

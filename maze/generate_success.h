@@ -24,6 +24,8 @@ void generate_maze<T>::doCommand(){
     string alg;
     string name;
     int size;
+    m_view->printToOut("---Alg list---\n");
+    m_view->printstring(m_model->get_gens());
     cout<< "choose algorithm: ";
     cin>>alg;
     cout<<"enter maze name: ";

@@ -31,3 +31,12 @@ void myview::detach(observer* ob) {
     }
 }
 
+void myview::printstring(vector<string>str) {
+
+    vector<string>::iterator it = str.begin();
+
+    for (it; it != str.end(); it++) {
+        printToOut(" - " + *it + "\n");
+    }
+    
+}

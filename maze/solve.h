@@ -11,11 +11,14 @@ public:
 
     void doCommand()
     {
-
-    c_view->printToOut("Enter maze name: ");
-    string mazeName =  c_view->get_input();
+        c_view->printToOut("---Maze list---\n");
+        c_view->printstring(c_model->get_mazes());
+        c_view->printToOut("Enter maze name: ");
+        string mazeName =  c_view->get_input();
 
     if(c_model->is_maze_exist(mazeName)){
+        c_view->printToOut("---Alg list---\n");
+        c_view->printstring(c_model->get_sols());
         c_view->printToOut("Enter algorithm name: ");
         string algo = c_view->get_input();
         if (c_model->is_alg_exist(algo)) {
