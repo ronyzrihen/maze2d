@@ -56,9 +56,9 @@ void mymodel::addSearcher(string name, Searcher<string>* algo) {
 
 void mymodel::save(string fileName, d2Maze maze) {
 
-    vector<int> vec = maze.GetData();
-    file* newFile = new file(vec,fileName);
-    files[fileName] = newFile;
+        vector<int> compressed = compressor.comprress(maze.GetData());
+        file* newFile = new file(compressed ,fileName);
+        files[fileName] = newFile;
 
 }
 
@@ -71,7 +71,8 @@ d2Maze& mymodel::load(string fileName, string mazeName) {
 
 
     if(is_file_exist(fileName) == true){
-        d2Maze newMaze(files[fileName]->load());
+
+        d2Maze newMaze(compressor.deComprress(files[fileName]->load()));
         add_maze(mazeName, newMaze);
         return newMaze;
 
@@ -160,3 +161,10 @@ bool mymodel::is_file_exist(string fileName) {
     return false;
 }
 
+bool mymodel::is_algo_exist(string algoName){
+    auto it = generators.find(algoName);
+    if(it != generators.end()){
+        return true;
+    }
+    return false;
+}

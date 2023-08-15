@@ -15,6 +15,8 @@ public:
 
         c_view->printToOut("Enter maze name: ");
         string mazeName = c_view->get_input();
+
+
         if (c_model->is_maze_exist(mazeName)) {
 
             c_view->printToOut("Do You Wish To Solve Manually? (Y/N)");
@@ -27,7 +29,14 @@ public:
 
                 c_view->printToOut("Enter algorithm name: ");
                 string algo = c_view->get_input();
-                c_model->solve(algo, mazeName);
+                if (c_model->is_algo_exist(algo)) {
+
+                    c_model->solve(algo, mazeName);
+                }
+                else {
+                    c_view->printToOut("algo not exist");
+                }
+
                 return;
 
 
@@ -35,6 +44,7 @@ public:
             c_view->printToOut(answer + " is not a valid answer.");
             return;
         }
+        c_view->printToOut("maze not exist");
 
 
     };
