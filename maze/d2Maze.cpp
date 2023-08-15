@@ -127,7 +127,7 @@ int d2Maze::binaryToDecimal(int binaryNumber) {
     return decimalNumber;
 }
 
-int d2Maze::decimalToBinary(int decimalNumber, vector<int>& binary_vec) {
+void d2Maze::decimalToBinary(int decimalNumber, vector<int>& binary_vec) {
     stack<int> binaryDigits;
 
     if(decimalNumber == 0)
@@ -153,7 +153,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
     player.set_col(i);
     player.set_row(0);
     end.set_col(j);
-    end.set_row(size);
+    end.set_row(size-1);
 
     m_size = GetData().size();
 };
@@ -163,6 +163,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 
     if( player.get_row() <= m_size && player.get_row() > 0 && !maze[player.get_row()][player.get_col()].topWall ){
         player.set_row(player.get_row()-1);
+        cout << "THAT'S A WALL\n";
     }
 
 }
@@ -173,7 +174,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
         player.set_row(player.get_row()+1);
         return;
     }
-        cout << "didnt work\n";
+        cout << "THAT'S A WALL\n";
 
 }
     void d2Maze::move_left(){
@@ -182,7 +183,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
         player.set_col(player.get_col()-1);
         return;
     }
-        cout << "didnt work\n";
+        cout << "THAT'S A WALL\n";
 }
 
     void d2Maze::move_right(){
@@ -191,7 +192,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
         player.set_col(player.get_col()+1);
         return;
     }
-        cout << "didnt work\n";
+        cout << "THAT'S A WALL\n";
 }
 
 vector<string> d2Maze::getPossibleMoves() {

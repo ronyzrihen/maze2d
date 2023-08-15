@@ -12,7 +12,7 @@ public:
 	Generator() {};
 	~Generator(){};
 	virtual d2Maze generate_maze(int maze_size)=0;
-	void measureAlgorithmTime();
+	void measureAlgorithmTime(); //TODO change clock to time()
 private:
 
 };

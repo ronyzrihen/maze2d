@@ -27,6 +27,6 @@ public:
     virtual bool is_maze_exist(string MazeName) = 0;
     virtual bool is_file_exist(string fileName) = 0;
     virtual d2Maze& load(string fileName, string mazeName) = 0;
-    virtual bool save(string aFile, d2Maze maze) = 0;
+    virtual void save(string aFile, d2Maze maze) = 0;
 };
 

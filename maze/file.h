@@ -13,7 +13,6 @@ public:
 
 	void save(vector<int> maze);
     vector<int> load();
-	//string dir(){};
 	int size() { return f_size; };
 
 private:
