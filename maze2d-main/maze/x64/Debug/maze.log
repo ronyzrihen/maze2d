@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\Cli.h(115,28): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\Cli.h(89): message : while compiling class template member function 'void Cli<std::string>::startCli(void)'
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\Cli.h(138): message : see reference to function template instantiation 'void Cli<std::string>::startCli(void)' being compiled
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\Cli.h(131): message : while compiling class template member function 'void Cli<std::string>::addCommands(std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)'
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\myview.h(26): message : see reference to function template instantiation 'void Cli<std::string>::addCommands(std::map<std::string,command *,std::less<std::string>,std::allocator<std::pair<const std::string,command *>>>)' being compiled
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\myview.h(17): message : see reference to class template instantiation 'Cli<std::string>' being compiled
+  maze.vcxproj -> C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\x64\Debug\maze.exe
