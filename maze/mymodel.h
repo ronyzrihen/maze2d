@@ -10,6 +10,7 @@
 #include "exception"
 #include "exceptions.h"
 #include "d2MazeSearchable.h"
+#include "MazeCompression.h"
 using namespace std;
 
 
@@ -30,6 +31,7 @@ public:
 	d2Maze& get_maze(string name) { return *mazes[name]; };
     bool is_maze_exist(string MazeName);
     bool is_file_exist(string fileName) ;
+    bool is_algo_exist(string algoName);
 
 
 	void addGen(string name, Generator* algo);
@@ -50,9 +52,9 @@ private:
 	 map<string, Generator* > generators;
 	 map<string, Searcher<string>*> solvers;
 	 map<string, Solution<string>*> solution_cache;
+    MazeCompression compressor;
+
      string state;
-
-
 
 };
 
