@@ -31,7 +31,11 @@ public:
 	d2Maze& get_maze(string name) { return *mazes[name]; };
     bool is_maze_exist(string MazeName);
     bool is_file_exist(string fileName) ;
-    bool is_algo_exist(string algoName);
+	bool is_sol_exist(string algName);
+	bool is_gen_exist(string algoName);
+	vector<string>get_mazes();
+	vector<string>get_gens();
+	vector<string>get_sols();
 
 
 	void addGen(string name, Generator* algo);

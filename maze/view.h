@@ -19,6 +19,7 @@ public:
     virtual string get_input() = 0;
     virtual void printToOut(string print) = 0;
     virtual void play(d2Maze* maze) = 0 ;
+    virtual void printstring(vector<string>str) = 0;
 	 ~view(){};
 
 

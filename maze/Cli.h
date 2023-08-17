@@ -25,7 +25,7 @@ public:
 
 	
 private:
-map<int ,string> commands;
+map<string ,command*> commands;
 istream& in;
 ostream& out;
 view<T>* aView;
@@ -63,7 +63,6 @@ void Cli<T>::display(d2Maze& maze) const {
             }else{
                 out << " ";
             }
-//            out << (i == playerX && j == playerY ? "@" : (i == startX && j == startY) ? "s" : (i == endX - 1 && j == endY - 1 ? "e" :  " "));
             out << (j == maze.get_dim() - 1 ? "  |" : "  ");
         }
         out << endl;
@@ -104,10 +103,11 @@ void Cli<T>::startCli(){
         }
         if(aCommand == "list"){
             printcommands();
+            continue;
         }
         //in >> aCommand;
         for(auto com : commands){
-            if(com.second == aCommand){
+            if(com.first == aCommand){
                 try{
                     aView->set_state(aCommand);
                     aView->notify();
@@ -129,11 +129,10 @@ void Cli<T>::startCli(){
 
 template<class T>
 void Cli<T>::addCommands(map<string,command*> com){
-
-
+  
     int i=1;
     for( const auto& a_com : com) {
-        commands[i++] = a_com.first;
+        commands[a_com.first] = a_com.second;
     }
     startCli();
 }
@@ -142,8 +141,10 @@ void Cli<T>::addCommands(map<string,command*> com){
 template<class T>
 void Cli<T>::printcommands(){
     cout << "--== COMMAND LIST ==--\n";
+    int i = 1;
     for(const auto& aCommand : commands){
-        cout << aCommand.first << ".  " << aCommand.second << endl;
+        cout << i << ".  " << aCommand.first<< endl;
+        i++;
     }
 }
 

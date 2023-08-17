@@ -22,7 +22,6 @@ public:
 
 		//Print time
 	}
-	
 
 //Additional implementation
 public:

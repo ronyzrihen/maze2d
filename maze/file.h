@@ -8,7 +8,7 @@ using namespace std;
 class file
 {
 public:
-	file(vector<int>& maze ,string name ,string = "../files/"  );
+	file(vector<int>& maze ,string name ,string = "./"  );
 	~file(){};
 
 	void save(vector<int> maze);

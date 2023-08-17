@@ -9,9 +9,22 @@ using namespace std;
 
 class controller :public observer
 {
+
 public:
-	controller(){};
-	~controller(){};
+    controller(){};
+    ~controller(){};
+    virtual void con_generate_maze() = 0;
+    virtual void con_dir() = 0;
+    virtual void con_display() = 0;
+    virtual void con_display_solution() = 0;
+    virtual void con_file_size() = 0;
+    virtual void con_load_maze() = 0;
+    virtual void con_mazeSize() = 0;
+    virtual void con_save_maze() = 0;
+    virtual void con_solve() = 0;
+    virtual void con_exit() = 0;
+    virtual void initview()=0;
+
 
 private:
 

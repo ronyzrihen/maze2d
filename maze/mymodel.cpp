@@ -161,10 +161,46 @@ bool mymodel::is_file_exist(string fileName) {
     return false;
 }
 
-bool mymodel::is_algo_exist(string algoName){
+bool mymodel::is_gen_exist(string algoName){
     auto it = generators.find(algoName);
     if(it != generators.end()){
         return true;
     }
     return false;
+}
+
+bool mymodel::is_sol_exist(string algName) {
+    auto it = solvers.find(algName);
+    if (it != solvers.end()) {
+        return true;
+    }
+    return false;
+}
+
+
+vector<string>mymodel::get_mazes() {
+    vector<string>mazesname;
+    for (auto& maze : mazes)
+    {
+        mazesname.push_back(maze.first);
+    }
+    return mazesname;
+}
+
+vector<string>mymodel::get_gens() {
+    vector<string>genname;
+    for (auto& gen : generators)
+    {
+        genname.push_back(gen.first);
+    }
+    return genname;
+}
+
+vector<string>mymodel::get_sols() {
+    vector<string>solname;
+    for (auto& sol : solvers)
+    {
+        solname.push_back(sol.first);
+    }
+    return solname;
 }

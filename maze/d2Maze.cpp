@@ -53,7 +53,7 @@ d2Maze::d2Maze(vector<int> binaryMaze){
         }
         maze.push_back(cells);
     }
-m_size = binaryMaze.size();
+m_size = binaryMaze.size()*sizeof(int);
 }
 
 vector<int> d2Maze::GetData(){
