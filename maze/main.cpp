@@ -13,10 +13,11 @@
 #include "BFS.h"
 #include "solve.h"
 #include "display_solution.h"
+#include "CLI.h"
 using namespace std;
 
 int main() {
-    myview*newvi = new myview();
+    myview* newvi = new Cli();
     mymodel* newmod = new mymodel();
     Generator* gen = new simpleGenerator();
     Searcher<string>* bfs_searcher = new BFS<string>();

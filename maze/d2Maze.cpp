@@ -6,6 +6,7 @@ using namespace std;
 
 d2Maze::d2Maze(vector<int> binaryMaze){
 
+    m_size = binaryMaze.size()*sizeof(int);
     m_dim = binaryToDecimal(extract_int(binaryMaze));
 
     start.set_row(binaryToDecimal(extract_int(binaryMaze)));
@@ -53,7 +54,6 @@ d2Maze::d2Maze(vector<int> binaryMaze){
         }
         maze.push_back(cells);
     }
-m_size = binaryMaze.size()*sizeof(int);
 }
 
 vector<int> d2Maze::GetData(){
@@ -161,7 +161,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 
     void d2Maze::move_up(){
 
-    if( player.get_row() <= m_size && player.get_row() > 0 && !maze[player.get_row()][player.get_col()].topWall ){
+    if( player.get_row() <= m_dim && player.get_row() > 0 && !maze[player.get_row()][player.get_col()].topWall ){
         player.set_row(player.get_row()-1);
         cout << "THAT'S A WALL\n";
     }
@@ -170,7 +170,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 
     void d2Maze::move_down(){
 
-    if(player.get_row() < m_size && player.get_row() >= 0 && !(maze[player.get_row()][player.get_col()].bottomWall) ){
+    if(player.get_row() < m_dim && player.get_row() >= 0 && !(maze[player.get_row()][player.get_col()].bottomWall) ){
         player.set_row(player.get_row()+1);
         return;
     }
@@ -179,7 +179,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 }
     void d2Maze::move_left(){
 
-    if(player.get_col() <= m_size && player.get_col() > 0 && !maze[player.get_row()][player.get_col()].leftWall ){
+    if(player.get_col() <= m_dim && player.get_col() > 0 && !maze[player.get_row()][player.get_col()].leftWall ){
         player.set_col(player.get_col()-1);
         return;
     }
@@ -188,7 +188,7 @@ d2Maze::d2Maze(int size) : m_dim(size), maze(size, vector<Cell>(size)){
 
     void d2Maze::move_right(){
 
-    if(player.get_col() < m_size && player.get_col() >= 0 && !maze[player.get_row()][player.get_col()].rightWall ){
+    if(player.get_col() < m_dim && player.get_col() >= 0 && !maze[player.get_row()][player.get_col()].rightWall ){
         player.set_col(player.get_col()+1);
         return;
     }

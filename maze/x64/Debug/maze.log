@@ -1,3 +1,7 @@
 ﻿  main.cpp
-C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\maze\mymodel.h(73): warning C4715: 'mymodel::load': not all control paths return a value
-  maze.vcxproj -> C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze\x64\Debug\maze.exe
+  mymodel.cpp
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\mymodel.cpp(97,20): warning C4834: discarding return value of function with 'nodiscard' attribute
+  Generating Code...
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\mymodel.cpp(82): warning C4715: 'mymodel::load': not all control paths return a value
+C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\mymodel.cpp(78): warning C4172: returning address of local variable or temporary: newMaze
+  maze.vcxproj -> C:\Users\אופק אליהו\OneDrive\שולחן העבודה\לימודים\שנה ב\סמסטר ב\תכנות\maze2d-main\maze\x64\Debug\maze.exe

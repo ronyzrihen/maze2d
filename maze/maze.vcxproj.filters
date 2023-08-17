@@ -15,13 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="myview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mymodel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="d2Maze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeCompression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze2dGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CLI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,6 +96,54 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file_size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generate_success.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="load_maze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BFS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonSearcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="solve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="save_maze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Searchable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Searcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="d2MazeSearchable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="display_solution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MazeCompression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@ Solution<string>* mymodel::get_solution(string mazeName){
     if(it != solution_cache.end()){
     return solution_cache[mazeName];
     }
+    return NULL;
 
 }
 

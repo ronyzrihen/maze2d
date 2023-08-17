@@ -106,7 +106,12 @@ void mycontroller<T>::con_display_solution() {
     string mazeName = view_layer->get_input();
 
     Solution<T>* sol = model_layer->get_solution(mazeName); //TODO shared ptr
-    view_layer->display_solution(sol);
+    if (sol != NULL) {
+
+        view_layer->display_solution(sol);
+        return;
+    }
+    view_layer->printToOut("Solution not exist\n ");
 
 }
 
