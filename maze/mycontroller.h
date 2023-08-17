@@ -17,7 +17,17 @@ class mycontroller : public controller
 {
 public:
     mycontroller(view<T>* vi, model<T>* mod);
-    ~mycontroller() {};
+    ~mycontroller() {
+        delete view_layer;
+        delete model_layer;
+        for(auto i :commands)
+        {
+            if (i.second != NULL) {
+                delete i.second;
+                i.second = NULL;
+            }
+        }
+    };
     void doCommand(string com);
     void update(subject* sub);
 
@@ -32,13 +42,12 @@ public:
     void con_mazeSize();
     void con_save_maze();
     void con_solve();
-    void con_exit(){};
-    void addCommand(map<string, command*>com);
+    void addCommand(map<string, command*>& com);
     void initview();
 private:
 	view<T>* view_layer;
 	model<T>* model_layer;
-	map <string, command*>commands;
+	map <string,command*>commands;
 };
 
 
@@ -53,13 +62,13 @@ mycontroller<T>::mycontroller(view<T>* vi,model<T>* mod):view_layer(vi),model_la
 template<class T>
 void mycontroller<T>::doCommand(string com) {
 
-    std::map<string, command*>::iterator it;
+    std::map<string,command*>::iterator it;
     it = commands.find(com);
     if (it != commands.end()) {
-        commands[com]->doCommand();
+        view_layer->set_command(commands[com]);
     }
     else {
-        throw string("shit");
+        throw string("Command not found");
     }
 
 
@@ -283,9 +292,9 @@ void mycontroller<T>::con_dir() {
 
 
 template<class T>
-void mycontroller<T>:: addCommand(map<string,command*>com) {
-    for (auto& command : com) {
-        commands[command.first] = command.second;
+void mycontroller<T>:: addCommand(map<string, command*>& com) {
+    for (auto& comm : com) {
+        commands[comm.first] =comm.second;
      }
 
 }

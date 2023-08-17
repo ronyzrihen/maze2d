@@ -6,7 +6,7 @@ class exitt : public command {
 public:
     exitt(controller*con):control(con) {};
     ~exitt() {};
-    void doCommand() override { control->con_exit(); }
+    void doCommand() override { delete control; };
 private:
     controller* control;
 

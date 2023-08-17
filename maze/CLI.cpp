@@ -68,19 +68,20 @@ void Cli::startCli() {
         if (aCommand == "") {
             getline(in, aCommand, '\n');
         }
-        if (aCommand == "exit" || aCommand == "Exit") {
-            return;
-        }
         if (aCommand == "list") {
             printcommands();
             continue;
         }
-        //in >> aCommand;
+     
         for (auto com : commands) {
-            if (com.first == aCommand) {
+            if (com.second == aCommand) {
                 try {
                     set_state(aCommand);
                     notify();
+                    Com->doCommand();
+                 if (aCommand == "exit" || aCommand == "Exit") {
+                    return;
+                    }
                 }
                 catch (exception* e) {
                     e->what();
@@ -99,13 +100,15 @@ void Cli::startCli() {
 
 
 
-void Cli::initcli(map<string, command*> com) {
+void Cli::initcli(const map<string, command*>& com) {
 
     int i = 1;
     for (const auto& a_com : com) {
-        commands[a_com.first] = a_com.second;
+        commands[i] = a_com.first;
+        i++;
     }
     startCli();
+ 
 }
 
 
@@ -114,7 +117,7 @@ void Cli::printcommands() {
     cout << "--== COMMAND LIST ==--\n";
     int i = 1;
     for (const auto& aCommand : commands) {
-        cout << i << ".  " << aCommand.first << endl;
+        cout << i << ".  " << aCommand.second << endl;
         i++;
     }
 }

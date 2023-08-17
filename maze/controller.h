@@ -12,7 +12,7 @@ class controller :public observer
 
 public:
     controller(){};
-    ~controller(){};
+    virtual ~controller(){};
     virtual void con_generate_maze() = 0;
     virtual void con_dir() = 0;
     virtual void con_display() = 0;
@@ -22,8 +22,8 @@ public:
     virtual void con_mazeSize() = 0;
     virtual void con_save_maze() = 0;
     virtual void con_solve() = 0;
-    virtual void con_exit() = 0;
     virtual void initview()=0;
+    virtual void addCommand(map<string, command*>& com)=0;
 
 
 private:

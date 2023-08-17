@@ -8,6 +8,6 @@ class command
 {
 public:
 	command(){};
-	~command(){};
+	virtual ~command(){};
 	virtual void doCommand() = 0;
 };

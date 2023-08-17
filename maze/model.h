@@ -17,7 +17,7 @@ class model: public subject
 {
 public:
 	model(){};
-	~model() {};
+	virtual ~model() {};
     virtual void solve(string searcherName , string mazeName) = 0 ;
 	virtual int get_file_size(string name) = 0;
 	virtual int get_maze_size(string name) = 0;
